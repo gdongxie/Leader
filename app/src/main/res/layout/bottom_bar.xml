@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/buttom_button_height"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+    <!--首页-->
+    <RadioButton
+
+        android:id="@+id/bottom_1"
+        style="@style/navigation_radio"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:drawablePadding="3dp"
+        android:drawableTop="@drawable/navigation_home"
+        android:text="@string/home_page"
+        android:textColor="@drawable/font_bottom_color" />
+    <!--审批-->
+
+    <RadioButton
+
+        android:id="@+id/bottom_2"
+        style="@style/navigation_radio"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:drawablePadding="3dp"
+        android:drawableTop="@drawable/navigation_approval"
+        android:text="@string/approval"
+        android:textColor="@drawable/font_bottom_color" />
+    <!--图表-->
+
+    <RadioButton
+
+
+        android:id="@+id/bottom_3"
+        style="@style/navigation_radio"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:drawablePadding="3dp"
+        android:drawableTop="@drawable/navigation_chat"
+        android:text="@string/chart"
+        android:textColor="@drawable/font_bottom_color" />
+    <!--设置-->
+    <RadioButton
+
+
+        android:id="@+id/bottom_4"
+        style="@style/navigation_radio"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:drawablePadding="3dp"
+        android:drawableTop="@drawable/navigation_setting"
+        android:text="@string/setting"
+        android:textColor="@drawable/font_bottom_color" />
+
+
+</RadioGroup>

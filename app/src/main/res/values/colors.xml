@@ -3,4 +3,15 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <!--蓝色区域-->
+    <color name="light_blue">#f3f8ff</color>
+    <color name="bluer">#dfedff</color>
+    <color name="blue">#2385ff</color>
+    <!--灰色区域-->
+    <color name="home_bg_grey">#eeeeee</color>
+    <color name="line_grey">#dadada</color>
+    <color name="ligth_grey">#999999</color>
+    <color name="grey">#666666</color>
+    <color name="font_grey">#333333</color>
 </resources>

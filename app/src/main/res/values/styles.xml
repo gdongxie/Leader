@@ -1,11 +1,18 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <!-- <item name="colorPrimary">@color/colorPrimary</item>-->
+        <!--   <item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
+        <!-- <item name="colorAccent">@color/colorAccent</item>-->
     </style>
+    <!--底部导航栏按钮样式-->
+    <style name="navigation_radio">
+        <item name="android:button">@null</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/font_grey</item>
+        <item name="android:textSize">@dimen/font_size_9</item>
 
+    </style>
 </resources>
