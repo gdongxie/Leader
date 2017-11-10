@@ -5,6 +5,7 @@ import android.support.annotation.IdRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
+import android.view.KeyEvent;
 import android.view.WindowManager;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -17,6 +18,7 @@ import com.ict.mutd.leader.fragment.ApprovalFragment;
 import com.ict.mutd.leader.fragment.ChartFragment;
 import com.ict.mutd.leader.fragment.HomeFragment;
 import com.ict.mutd.leader.fragment.SettingFragment;
+import com.ict.mutd.leader.util.ActvityManager;
 import com.ict.mutd.leader.util.NetWorkUti;
 import com.ict.mutd.leader.util.ToastUtils;
 import com.ict.mutd.leader.view.NoScrollViewPager;
@@ -27,9 +29,13 @@ public class MainActivity extends BaseActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
     //头部标题栏
     private RelativeLayout top;
+    //ViewPager
     private NoScrollViewPager container;
+    //底部栏
     private RadioGroup rg_bottom;
+    //标题
     private TextView tv_title;
+    //首页，审批，图表，设置四个栏目
     private RadioButton rb_home, rb_approval, rb_chat, rb_setting;
 
 
@@ -62,6 +68,8 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initData() {
+        ActvityManager.activityList.add(MainActivity.this);
+
         drawable1 = getResources().getDrawable(R.drawable.navigation_home);
         drawable2 = getResources().getDrawable(R.drawable.navigation_approval);
         drawable3 = getResources().getDrawable(R.drawable.navigation_chat);
@@ -176,5 +184,25 @@ public class MainActivity extends BaseActivity {
 
     }
 
+    /***
+     * 点击两次退出程序
+     * @param keyCode
+     * @param event
+     * @return
+     */
+    private long firstTime = 0;
 
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN && event.getRepeatCount() == 0) {
+            long secondTime = System.currentTimeMillis();
+            if (secondTime - firstTime > 2000) {
+                ToastUtils.showToast(this, "再按一次退出领导APP");
+                firstTime = secondTime;
+            } else {
+                ActvityManager.exitClient(MainActivity.this);
+            }
+        }
+        return true;
+    }
 }
