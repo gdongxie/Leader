@@ -14,4 +14,20 @@
     <color name="ligth_grey">#999999</color>
     <color name="grey">#666666</color>
     <color name="font_grey">#333333</color>
+    <!--白色-->
+    <color name="white">#ffffff</color>
+
+    <!--手势密码部分-->
+    <color name="grey_b2b2b2">#B2B2B2</color>
+    <color name="blue_78d2f6">#2385ff</color>
+    <color name="blue_01aaee">#2385ff</color>
+    <color name="blue_00aaee">#2385ff</color>
+    <color name="red_f3323b">#F3323B</color>
+    <color name="grey_f6f6f6">#f6f6f6</color>
+    <color name="grey_a5a5a5">#A5A5A5</color>
+    <color name="grey_dde1e7">#DDE1E7</color>
+    <color name="red_f4333c">#F4333C</color>
+
+    <color name="ceshi">#ff0000</color>
+
 </resources>

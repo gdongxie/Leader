@@ -33,12 +33,10 @@ public abstract class BaseActivity extends FragmentActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         initData();
         initListener();
-        StatusBarCompat.setStatusBarColor(this,getResources().getColor(R.color.blue),true);
+        //设置状态栏颜色
+        StatusBarCompat.setStatusBarColor(this, getResources().getColor(R.color.blue), true);
     }
 
-    protected abstract void initListener();
-
-    protected abstract void initView();
 
     /**
      * 初始化contentView
@@ -50,7 +48,11 @@ public abstract class BaseActivity extends FragmentActivity {
     /***
      * 初始化相关数据
      */
+    protected abstract void initView();
+
     protected abstract void initData();
+
+    protected abstract void initListener();
 
     /***
      * 点击空白处隐藏软键盘

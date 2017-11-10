@@ -12,6 +12,7 @@ import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.githang.statusbar.StatusBarCompat;
 import com.ict.mutd.leader.R;
 import com.ict.mutd.leader.adapter.MyFragmentPagerAdapter;
 import com.ict.mutd.leader.fragment.ApprovalFragment;
