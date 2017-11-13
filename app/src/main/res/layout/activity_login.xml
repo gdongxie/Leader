@@ -68,7 +68,7 @@
                             android:src="@mipmap/login_un" />
 
                         <com.ict.mutd.leader.view.ClearEditText
-                            android:id="@+id/et_Susercode"
+                            android:id="@+id/et_uesrName"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginRight="15dp"
@@ -106,7 +106,7 @@
                             android:src="@mipmap/login_pw" />
 
                         <com.ict.mutd.leader.view.ClearEditText
-                            android:id="@+id/et_Spassword"
+                            android:id="@+id/et_userPwd"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginRight="15dp"

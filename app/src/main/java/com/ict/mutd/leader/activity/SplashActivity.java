@@ -1,6 +1,7 @@
 package com.ict.mutd.leader.activity;
 
 import android.content.Intent;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,10 +13,12 @@ import android.view.animation.Animation;
 
 import com.ict.mutd.leader.R;
 import com.ict.mutd.leader.util.ActvityManager;
+import com.ict.mutd.leader.util.PreferUtils;
 
 public class SplashActivity extends AppCompatActivity implements Animation.AnimationListener {
     private static final String TAG = SplashActivity.class.getSimpleName();
     private View view;
+    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +33,6 @@ public class SplashActivity extends AppCompatActivity implements Animation.Anima
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         init();
-
         Animation animation = new AlphaAnimation(0.4f, 1.0f);
         animation.setDuration(2000);
         animation.setInterpolator(getApplicationContext(), android.R.anim.decelerate_interpolator);
@@ -57,9 +59,15 @@ public class SplashActivity extends AppCompatActivity implements Animation.Anima
      * 跳转到登陆页面
      */
     private void startLogin() {
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
-        finish();
+        if (PreferUtils.getLoginStatus(getApplicationContext())) {
+            intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        } else {
+            intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+            finish();
+        }
+
 
     }
 
