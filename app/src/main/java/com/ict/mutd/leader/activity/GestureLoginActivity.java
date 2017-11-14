@@ -98,16 +98,9 @@ public class GestureLoginActivity extends AppCompatActivity {
      * 手势登录成功（去首页）
      */
     private void loginGestureSuccess() {
-//        if (tag.equals("1")) {//登录界面
         Intent intent = new Intent(GestureLoginActivity.this, MainActivity.class);
         startActivity(intent);
         finish();
-//        } else {//手势密码修改界面
-//            Intent intent = new Intent(GestureLoginActivity.this, CreateGestureActivity.class);
-//            intent.putExtra("tag", "2");
-//            startActivity(intent);
-//            this.finish();
-//        }
     }
 
     /**
@@ -117,8 +110,9 @@ public class GestureLoginActivity extends AppCompatActivity {
     void forgetGesturePasswrod() {
         //重新回到登录界面，验证身份
         aCache.put(Constant.GESTURE_PASSWORD, "");
+        Intent intent = new Intent(GestureLoginActivity.this, LoginActivity.class);
+        startActivity(intent);
         this.finish();
-
     }
 
     private enum Status {

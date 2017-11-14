@@ -38,7 +38,7 @@ public class HomeFragment extends Fragment {
         pb_userepair = view.findViewById(R.id.home_use_repair_progressbar);
         pb_tools = view.findViewById(R.id.home_tools_progressbar);
 
-        tv_end_time.setText("截止统计日期:\u3000" + DateUtils.getDay(0) + "\u30008:00");
+        tv_end_time.setText("截止统计日期:\u3000" + DateUtils.getDay(-1));
 
 
         return view;

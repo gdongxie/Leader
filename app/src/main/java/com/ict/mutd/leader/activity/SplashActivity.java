@@ -60,8 +60,9 @@ public class SplashActivity extends AppCompatActivity implements Animation.Anima
      */
     private void startLogin() {
         if (PreferUtils.getLoginStatus(getApplicationContext())) {
-            intent = new Intent(this, MainActivity.class);
+            intent = new Intent(this, GestureLoginActivity.class);
             startActivity(intent);
+            finish();
         } else {
             intent = new Intent(this, LoginActivity.class);
             startActivity(intent);

@@ -19,6 +19,7 @@ import com.ict.mutd.leader.util.GsonUtils;
 import com.ict.mutd.leader.util.MyResponse;
 import com.ict.mutd.leader.util.PreferUtils;
 import com.ict.mutd.leader.util.ToastUtils;
+import com.ict.mutd.leader.util.cache.ACache;
 import com.ict.mutd.leader.view.ClearEditText;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
@@ -31,6 +32,8 @@ public class LoginActivity extends AppCompatActivity {
     private CheckBox checkBox;
     private LinearLayout ll_login;
     private String userName = "", userPwd = "";
+    private ACache aCache;
+    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +56,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void initData() {
+        aCache = ACache.get(this);
         if (Constant.rbpflag) {
             if (!TextUtils.isEmpty(PreferUtils.getUserName(getApplicationContext()))) {
                 et_userName.setText(PreferUtils.getUserName(getApplicationContext()));
@@ -126,14 +130,23 @@ public class LoginActivity extends AppCompatActivity {
                                 //保存登陆状态
                                 PreferUtils.saveLoginStatus(getApplicationContext(), true);
                                 //保存单位名称
-                                Log.d(TAG, "单位：" + loginResultInfo.DepotInfo.DeptName);
-                             //   PreferUtils.saveDeptName(getApplicationContext(), loginResultInfo.DepotInfo.DeptName);
+                                Log.d(TAG, "单位：" + loginResultInfo.getLoginInfo().getDepotInfo().getDeptName());
+                                PreferUtils.saveDeptName(getApplicationContext(), loginResultInfo.getLoginInfo().getDepotInfo().getDeptName());
                                 //保存部门名称
-                                PreferUtils.saveDepartName(getApplicationContext(), loginResultInfo.DepartmentWL.DeptName);
+                                Log.d(TAG, "部门:" + loginResultInfo.getLoginInfo().getDepartmentDeptWL().getDeptName());
+                                PreferUtils.saveDepartName(getApplicationContext(), loginResultInfo.getLoginInfo().getDepartmentDeptWL().getDeptName());
 
-                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                startActivity(intent);
-                                finish();
+                                String gesturePassword = aCache.getAsString(com.ict.mutd.leader.util.constant.Constant.GESTURE_PASSWORD);
+                                Log.d(TAG, "gesturePassword=" + gesturePassword);
+                                if (gesturePassword == null || TextUtils.isEmpty(gesturePassword)) {
+                                    intent = new Intent(LoginActivity.this, CreateGestureActivity.class);
+                                    startActivity(intent);
+                                    finish();
+                                } else {
+                                    intent = new Intent(LoginActivity.this, GestureLoginActivity.class);
+                                    startActivity(intent);
+                                    finish();
+                                }
                             } else {
                                 ToastUtils.showToast(LoginActivity.this, loginResultInfo.Desc);
                             }
