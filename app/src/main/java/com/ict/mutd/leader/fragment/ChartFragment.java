@@ -10,21 +10,17 @@ import android.view.ViewGroup;
 import com.ict.mutd.leader.R;
 
 /**
- * A simple {@link Fragment} subclass.
+ * 图表
  */
 public class ChartFragment extends Fragment {
-
-
-    public ChartFragment() {
-        // Required empty public constructor
-    }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_chart, container, false);
+
+        View view = View.inflate(getActivity(), R.layout.fragment_chart, null);
+        return view;
     }
 
 }

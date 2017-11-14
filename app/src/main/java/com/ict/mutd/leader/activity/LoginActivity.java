@@ -126,7 +126,7 @@ public class LoginActivity extends AppCompatActivity {
                             LoginResultInfo loginResultInfo = GsonUtils.jsonToBean(response, LoginResultInfo.class);
                             if (loginResultInfo.Type == MyResponse.OK) {
                                 //保存用户名
-                                PreferUtils.saveUserName(getApplicationContext(), userName);
+                                PreferUtils.saveUserName(getApplicationContext(), loginResultInfo.getLoginInfo().getUserInfo().getStuffName());
                                 //保存登陆状态
                                 PreferUtils.saveLoginStatus(getApplicationContext(), true);
                                 //保存单位名称

@@ -7,7 +7,7 @@
     <!--底部导航栏高度-->
     <dimen name="buttom_button_height">44dp</dimen>
     <!--距离左右的边距-->
-    <dimen name="left_right_margin">10dp</dimen>
+    <dimen name="left_right_margin">15dp</dimen>
     <dimen name="ll_buttom_height">60dp</dimen>
     <!--字体的设置-->
     <dimen name="font_size_23">23sp</dimen>

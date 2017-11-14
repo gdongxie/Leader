@@ -8,6 +8,9 @@
     <color name="light_blue">#f3f8ff</color>
     <color name="bluer">#dfedff</color>
     <color name="blue">#2385ff</color>
+    <color name="block_blue">#0171ee</color>
+    <color name="block_light_blue">#00a0e2</color>
+    <color name="block_green">#00a47e</color>
     <!--灰色区域-->
     <color name="home_bg_grey">#eeeeee</color>
     <color name="line_grey">#dadada</color>
@@ -16,6 +19,12 @@
     <color name="font_grey">#333333</color>
     <!--白色-->
     <color name="white">#ffffff</color>
+    <!--红色区域-->
+    <color name="red">#ff3e3e</color>
+    <!--黄色区域-->
+    <color name="orange">#ff7b23</color>
+    <!--绿色区域-->
+    <color name="green">#01b734</color>
 
     <!--手势密码部分-->
     <color name="grey_b2b2b2">#B2B2B2</color>

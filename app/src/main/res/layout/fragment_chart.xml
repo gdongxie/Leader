@@ -1,13 +1,128 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/home_bg_grey"
+    android:orientation="vertical"
     tools:context="com.ict.mutd.leader.fragment.ChartFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="ChatFragment" />
+        android:scrollbars="none">
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/left_right_margin"
+            android:layout_marginRight="@dimen/left_right_margin"
+            android:layout_marginTop="15dp"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/rl_inventory"
+                android:layout_width="match_parent"
+                android:layout_height="125dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/shape_background">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="22dp"
+                        android:layout_marginRight="22dp"
+                        android:gravity="center_vertical"
+                        android:padding="10dp"
+                        android:scaleType="centerCrop"
+                        android:src="@mipmap/inventory" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15dp"
+                        android:gravity="center_vertical"
+                        android:text="库存统计"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/font_size_18" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_consume"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/shape_chart_background_01">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="22dp"
+                        android:layout_marginRight="22dp"
+                        android:padding="10dp"
+                        android:src="@mipmap/consume" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15dp"
+                        android:gravity="center_vertical"
+                        android:text="消耗统计"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/font_size_18" />
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_in_storage"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/shape_chart_background_02">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="22dp"
+                        android:layout_marginRight="22dp"
+                        android:padding="10dp"
+                        android:src="@mipmap/instorage" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15dp"
+                        android:gravity="center_vertical"
+                        android:text="入库统计"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/font_size_18" />
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</LinearLayout>
