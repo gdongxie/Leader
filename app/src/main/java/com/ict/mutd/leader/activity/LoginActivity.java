@@ -138,15 +138,22 @@ public class LoginActivity extends AppCompatActivity {
 
                                 String gesturePassword = aCache.getAsString(com.ict.mutd.leader.util.constant.Constant.GESTURE_PASSWORD);
                                 Log.d(TAG, "gesturePassword=" + gesturePassword);
-                                if (gesturePassword == null || TextUtils.isEmpty(gesturePassword)) {
-                                    intent = new Intent(LoginActivity.this, CreateGestureActivity.class);
-                                    startActivity(intent);
-                                    finish();
+                                if (PreferUtils.getGestureStatus(getApplicationContext())) {
+                                    if (gesturePassword == null || TextUtils.isEmpty(gesturePassword)) {
+                                        intent = new Intent(LoginActivity.this, CreateGestureActivity.class);
+                                        startActivity(intent);
+                                        finish();
+                                    } else {
+                                        intent = new Intent(LoginActivity.this, GestureLoginActivity.class);
+                                        startActivity(intent);
+                                        finish();
+                                    }
                                 } else {
-                                    intent = new Intent(LoginActivity.this, GestureLoginActivity.class);
+                                    intent = new Intent(LoginActivity.this, MainActivity.class);
                                     startActivity(intent);
                                     finish();
                                 }
+
                             } else {
                                 ToastUtils.showToast(LoginActivity.this, loginResultInfo.Desc);
                             }

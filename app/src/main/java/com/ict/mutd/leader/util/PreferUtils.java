@@ -102,4 +102,22 @@ public class PreferUtils {
         SharedPreferences sharedPreferences = context.getSharedPreferences("departName", Context.MODE_PRIVATE);
         return sharedPreferences.getString("departName", "");
     }
+
+    /***
+     * 保存是否开启手势密码
+     */
+    public static void saveGestureStatus(Context context, boolean status) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("status", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("status", status);
+        editor.commit();
+    }
+
+    /***
+     * 获取是否开启了手势密码
+     */
+    public static boolean getGestureStatus(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("status", Context.MODE_PRIVATE);
+        return sharedPreferences.getBoolean("status", false);
+    }
 }

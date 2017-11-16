@@ -1,6 +1,7 @@
 package com.ict.mutd.leader.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.ict.mutd.leader.R;
+import com.ict.mutd.leader.activity.FPSetActivity;
 import com.ict.mutd.leader.util.PreferUtils;
 
 /**
@@ -18,6 +20,7 @@ import com.ict.mutd.leader.util.PreferUtils;
 public class SettingFragment extends Fragment implements View.OnClickListener {
     private TextView tv_unit, tv_department, tv_name;//单位、部门、姓名
     private RelativeLayout rl_figure_password, rl_about, rl_logout;//手势密码、关于、退出
+    private Intent intent;
 
 
     @Override
@@ -57,7 +60,8 @@ public class SettingFragment extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.rl_figure_password:
-
+                intent = new Intent(getActivity(), FPSetActivity.class);
+                getActivity().startActivity(intent);
                 break;
             case R.id.rl_about:
 
