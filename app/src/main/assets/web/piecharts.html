@@ -1,0 +1,88 @@
+<html>
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8" name="viewport"
+          content="width=device-width,initial-scale=1.0,maximum-scale=1, user-scalable=no">
+    <STYLE>
+        body{ margin:0 !important;}
+        <!--span{ position:absolute; top:10%; left:40%; z-index:10; display:none; }-->
+        // #container{ margin:0 auto; position:relative; }
+
+    </STYLE>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/highcharts.js"></script>
+    <script src="js/no-data-to-display.js"></script>
+    <script type="text/javascript"></script>
+    <style type="text/css">
+    </style>
+    <STYLE>
+        body{ margin:0 !important;}
+        span{ position:absolute; top:50%; left:40%; z-index:10; display:none; }
+        // #container{ margin:0 auto; position:relative; }
+
+    </STYLE>
+</head>
+<script>
+	function refreshPie(month, data1) {
+ $("#container").height($(window).height());
+		$('#container')
+				.highcharts(
+
+
+						{
+						lang:{
+               loading:"正在努力加载ing",
+               noData:"暂时没有数据"
+            },
+            noData: {
+                style: {
+                    fontWeight: 'bold',
+                    fontSize: '15px',
+                    color: '#303030'
+                }
+            },
+							chart : {
+								plotBackgroundColor : null,
+								plotBorderWidth : null,
+								plotShadow : false
+							},
+							title : {
+								text : month
+							},
+							 tooltip: {
+            headerFormat: '{series.name}<br>',
+            pointFormat: '{point.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        colors: ['#fdcb29', '#e99421', '#3dc155', '#2773d5', '#e34844',
+   '#b3dc42', '#5fbafd', '#fc48a9', '#bf57d5', '#42d4da'],
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+               dataLabels: {
+                    enabled: true,
+                    format: '{point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                },
+                showInLegend: true
+            }
+        },
+        credits : {
+enabled : false
+},
+							series : [ {
+								type : 'pie',
+								name : '库存金额',
+								data : data1
+							} ]
+						});
+	}
+
+</script>
+<body>
+<div id="container"></div>
+</body>
+</html>

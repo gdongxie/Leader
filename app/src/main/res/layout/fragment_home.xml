@@ -89,14 +89,14 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="200dp">
+                    android:layout_height="400dp">
 
                     <TextView
                         android:id="@+id/tv_warn"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:text="暂时没有数据"
+                        android:text="暂无数据"
                         android:textColor="@color/font_grey"
                         android:textSize="@dimen/font_size_15"
                         android:textStyle="bold"
@@ -167,7 +167,18 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="200dp">
+                    android:layout_height="400dp">
+
+                    <TextView
+                        android:id="@+id/tv_use_warn"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="暂无数据"
+                        android:textColor="@color/font_grey"
+                        android:textSize="@dimen/font_size_15"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
 
                     <WebView
                         android:id="@+id/webview_use_repair"
@@ -233,6 +244,17 @@
                     android:id="@+id/rl_horizongtal"
                     android:layout_width="match_parent"
                     android:layout_height="400dp">
+
+                    <TextView
+                        android:id="@+id/tv_tool_warn"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="暂无数据"
+                        android:textColor="@color/font_grey"
+                        android:textSize="@dimen/font_size_15"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
 
                     <WebView
                         android:id="@+id/webview_tools"

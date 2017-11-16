@@ -1,0 +1,122 @@
+<html>
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8" name="viewport"
+          content="width=device-width,initial-scale=1.0,maximum-scale=1, user-scalable=no">
+    <STYLE>
+        body{ margin:0 !important;}
+        <!--span{ position:absolute; top:10%; left:40%; z-index:10; display:none; }-->
+        // #container{ margin:0 auto; position:relative; }
+
+
+    </STYLE>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/highcharts.js"></script>
+    <script type="text/javascript"></script>
+    <script src="js/no-data-to-display.js"></script>
+    <style type="text/css">
+    </style>
+    <STYLE>
+        body{ margin:0 !important;}
+        span{ position:absolute; top:50%; left:40%; z-index:10; display:none; }
+        // #container{ margin:0 auto; position:relative; }
+
+
+    </STYLE>
+</head>
+<script>
+function refreshLine(value) {
+var data = JSON.parse(value);
+var seriesvar=new Array();
+var markervar=data.marker;
+var obj=new series_obj_obj(markervar);
+
+var month=data.monthLine;
+
+for(var i=0;i
+<data.seriesdata.length
+;i++){
+seriesvar[i]=new series_obj({symbol: 'diamond'},data.lengend[i],data.seriesdata[i]);
+
+}
+
+$("#container").height($(window).height());
+$('#container').highcharts({
+ lang:{
+               loading:"正在努力加载ing",
+               noData:"暂时没有数据"
+            },
+            noData: {
+                style: {
+                    fontWeight: 'bold',
+                    fontSize: '15px',
+                    color: '#303030'
+                }
+            },
+chart : {
+type: 'spline',
+
+},
+ colors: ['#1572d8', '#ec9404'],
+plotOptions : {
+spline: {
+marker: {
+enable: false
+},
+dataLabels: {
+                    enabled: false          // 开启数据标签
+                },
+},
+
+
+},
+exporting: {
+enabled:false
+},
+title : {
+text : '',
+},
+
+xAxis : {
+categories :month
+},
+yAxis : {
+title : {
+text : '金额(万元)'
+},
+plotLines : [ {
+value : 0,
+color : '#808080'
+} ]
+},
+tooltip : {
+valueSuffix : '万元'
+},
+
+legend : {
+enabled : true
+},
+credits : {
+enabled : false
+},
+series : seriesvar
+}).height($(window).height());
+};
+function series_obj(marker,name,data){
+this.marker=marker;
+this.name=name;
+this.data=data;
+};
+function series_obj_obj(symbol){
+this.symbol=symbol;
+}
+
+
+
+
+</script>
+<body>
+<div id="container"></div>
+</body>
+</html>

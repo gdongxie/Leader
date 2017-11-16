@@ -1,0 +1,145 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8" name="viewport"
+          content="width=device-width,initial-scale=1.0,maximum-scale=1, user-scalable=no">
+    <STYLE>
+        body{ margin:0; !important;}
+        <!--span{ position:absolute; top:10%; ;left:40%; z-index:10; display:none; }-->
+        // #container{ margin:0 auto; position:relative; }
+
+
+    </STYLE>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/highcharts.js"></script>
+    <script src="js/no-data-to-display.js"></script>
+    <script type="text/javascript">
+
+     var container;
+     var seriesvar = new Array();
+
+     var categorys;
+      var options1 = {
+          lang:{
+               loading:"正在努力加载ing",
+               noData:"暂时没有数据"
+            },
+            noData: {
+                style: {
+                    fontWeight: 'bold',
+                    fontSize: '15px',
+                    color: '#303030'
+                }
+            },
+
+          chart: {
+               type: 'bar',
+               marginRight:5,
+               renderTo:'container'
+            },
+            exporting: {
+                enabled:false
+            },
+            colors: ['#fdcb29', '#e99421', '#3dc155', '#2773d5', '#e34844',
+   '#b3dc42', '#5fbafd', '#fc48a9', '#bf57d5', '#42d4da'],
+            title: {
+                text: '',
+                align: 'left',
+                style: {
+                    fontSize: 12,
+                    fontWeight: 'bold'
+                },
+                margin:10
+            },
+            xAxis: {
+                categories: [],
+                labels: {
+                     style: {
+                        fontSize:10
+                    }
+                }
+            },
+            yAxis: {
+             min: 0,
+            title: {
+                text: '人口总量 (百万)',
+                align: 'high'
+            },
+            labels: {
+                overflow: 'justify'
+            }
+            },
+            tooltip: {
+                valueSuffix: ' %'
+            },
+            plotOptions: {
+            bar: {
+
+                dataLabels: {
+                fontSize: '10px',
+                    enabled: true,
+                    allowOverlap: true
+                },
+                 showInLegend: false
+            }
+        },
+
+            exporting: {
+                enabled:false
+            },
+            credits: {
+                enabled:false
+            },
+            series: seriesvar
+
+        };
+
+         $(function () {
+         <!--屏幕适配-->
+             $("#container").height($(window).height());
+
+         });
+
+          function showData(value) {
+
+
+          var data = JSON.parse(value);
+          for(var i=0;i<data.seriesname.length;i++){
+          seriesvar[i]=new series_obj(data.colorByPoint,'#2385ff', data.seriesname[i], data.seriesdata[i])
+          }
+
+          options1.title.text = data.legend;
+          options1.yAxis.title.text = data.textunit;
+          categorys=data.xAxis;
+
+          options1.tooltip.valueSuffix = data.unit;
+          options1.xAxis.categories = data.yAxis;
+
+
+          container =  new Highcharts.Chart(options1);
+         };
+       function series_obj(colorByPoint,color,name,data){
+        this.colorByPoint=colorByPoint;
+        this.color=color;
+        this.name=name;
+        this.data=data;
+       }
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</head>
+
+<body>
+<div id="container"></div>
+</body>
+</html>
